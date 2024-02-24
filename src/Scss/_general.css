@@ -1,0 +1,150 @@
+.container {
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+
+    @include medium {
+        max-width: 960px;
+    }
+}
+
+.grid {
+    display: grid;
+
+    &--gap {
+        @include small {
+            grid-gap: 15px;
+        }
+    }
+
+    &--columns {
+        @include small {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @include medium {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+}
+
+.content {
+    margin-bottom: 30px;
+}
+
+table {
+    border-collapse:collapse;
+    border-left: 1px solid var(--medium);
+    border-top: 1px solid var(--medium);
+
+    tr {
+        border-collapse:collapse;
+        margin: 0;
+        padding: 0;
+
+        td, th {
+            border-bottom: 1px solid var(--medium);
+            border-collapse:collapse;
+            border-right: 1px solid var(--medium);
+            padding: 5px 15px;
+        }
+    }
+
+}
+
+h1, h2, h3, h4 {
+    color: var(--warning-bg);
+    padding-bottom: .8rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.horizontal-list {
+    ul {
+        overflow: auto;
+        padding: 0;
+        white-space: nowrap;
+    }
+
+    li {
+        display: inline-block;
+        list-style: none;
+        padding: 0 10px;
+        text-align: center;
+        width: 100px;
+
+        @include large {
+            width: 150px;
+        }
+
+        .img {
+            background-color: var(--dark);
+            background-position: center top;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            cursor: pointer;
+            border-radius: 50%;
+            padding-top: 100%;
+            transition: background .2s;
+
+           &:hover {
+               background-size: 110%;
+           }
+        }
+
+        .desc {
+            padding: 5px 0;
+
+            h3 {
+                font-size: .8rem;
+            }
+        }
+    }
+}
+
+.vertical-list {
+    ul {
+        padding: 0;
+    }
+
+    li {
+        background-color: var(--dark);
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: 100%;
+        cursor: pointer;
+        list-style: none;
+        min-height: 200px;
+        position: relative;
+        transition: background .2s;
+
+        .desc {
+            background-image: linear-gradient(0deg, black, transparent);
+            bottom: 0;
+            color: white;
+            display: block;
+            padding: 10px 15px;
+            position: absolute;
+            text-decoration: none;
+            width: 100%;
+
+            p, a {
+                display: none;
+            }
+        }
+
+        &:hover {
+            background-size: 120%;
+
+            .desc {
+                background-image: linear-gradient(0deg, black, rgba(0,0,0,.5));
+
+                p, a {
+                    display: block;
+                }
+            }
+        }
+    }
+}
